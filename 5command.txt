@@ -1,0 +1,17 @@
+shuf inupt.txt > shuffled.txt
+timeout 5s your-commmand
+grep 
+grep "pattern" filx.txt | sponge file.txt
+tar
+du -h path
+find path -name "*.txt
+
+awk '{print $s}' data.txt
+ps aux
+kill -number PID
+nc -l -p 12345
+df -h
+free -h 
+uptime
+top & htop
+wget
