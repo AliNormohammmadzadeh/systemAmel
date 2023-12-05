@@ -1,0 +1,49 @@
++------------------------+
+|                        |
+|        User Mode       |
+|                        |
++------------------------+
+           |
+           |  Program makes
+           |  epoll_ctl calls
+           |
++------------------------+
+|                        |
+|       Kernel Mode      |
+|                        |
++------------------------+
+           |
+           |  epoll_wait called
+           |
++------------------------+
+|                        |
+|        epoll_fd        |
+|        (epoll instance)|
++------------------------+
+           |
+           |  epoll event
+           |  registration
+           |
++------------------------+
+|                        |
+|       Monitored        |
+|       File Descriptors |
++------------------------+
+           |
+           |  Events occur
+           |
++------------------------+
+|                        |
+|   epoll_wait returns   |
+|   with events          |
++------------------------+
+           |
+           |  Program processes
+           |  events based on
+           |  file descriptors
+           |
++------------------------+
+|                        |
+|        User Mode       |
+|                        |
++------------------------+

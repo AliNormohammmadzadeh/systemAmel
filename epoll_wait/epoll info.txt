@@ -1,0 +1,29 @@
+
+
+The program calls epoll_wait to wait for events to occur on the monitored file descriptors.
+The epoll_wait system call blocks until at least one event occurs or until a specified timeout elapses.
+
+***********************************************************
+
+epoll_wait Returns:
+epoll_wait returns with information about the events that occurred, such as the file descriptor and the type of event.
+
+***********************************************************
+
+epoll ? 
+epoll is a Linux kernel system call for a scalable I/O event notification mechanism, first introduced in version 2.5. 44 of the Linux kernel. Its function is to monitor multiple file descriptors to see whether I/O is possible on any of them.
+
+***********************************************************
+
+file descriptor: 
+
+A file descriptor is a unique identifier or an integer value that the operating system uses to represent an open file, socket, or other I/O (input/output) resources. In Unix-like operating systems, including Linux, file descriptors are a fundamental concept for interacting with files, devices, and communication channels.
+
+File Descriptor 0 (FD 0): Standard Input (stdin)
+File Descriptor 1 (FD 1): Standard Output (stdout)
+File Descriptor 2 (FD 2): Standard Error (stderr)
+
+***********************************************************
+
+return : 
+When successful, epoll_wait() returns the number of file descriptors ready for the requested I/O, or zero if no file descriptor became ready during the requested timeout milliseconds. When an error occurs, epoll_wait() returns -1 and errno is set appropriately.
