@@ -27,3 +27,25 @@ File Descriptor 2 (FD 2): Standard Error (stderr)
 
 return : 
 When successful, epoll_wait() returns the number of file descriptors ready for the requested I/O, or zero if no file descriptor became ready during the requested timeout milliseconds. When an error occurs, epoll_wait() returns -1 and errno is set appropriately.
+
+
+***********************************************************
+
+#include <sys/epoll.h>
+
+int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
+
+***********************************************************
+
+Errors :
+
+EBADF  epfd is not a valid file descriptor.
+
+EFAULT The memory area pointed to by events is not accessiblewith write permissions.
+
+EINVAL epfd is not an epoll file descriptor, or maxevents is less than or equal to zero.
+
+
+***********************************************************
+
+epoll_wait is a system call in Linux that is used for asynchronous I/O event notification. It waits for events on an epoll instance referred to by the provided file descriptor (epfd). The function monitors a set of file descriptors for specified events and blocks until one or more of these events occur or until a timeout is reached. The events are returned in an array of struct epoll_event, which contains information about the file descriptors that are ready for the specified events. The epoll_wait call can be configured to block indefinitely (timeout set to -1), return immediately (timeout set to 0), or wait for a specified duration in milliseconds. This system call is commonly used in scalable and high-performance network programming to efficiently handle a large number of file descriptors and events without the need for constant polling.
